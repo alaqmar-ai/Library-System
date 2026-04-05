@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartLib - Smart University Library Management System</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Toast Container -->
+    <div id="toast-container"></div>
+
+    <!-- Loading Overlay -->
+    <div id="loading-overlay" class="loading-overlay hidden">
+        <div class="spinner"></div>
+        <p>Processing...</p>
+    </div>
+
+    <!-- Modal Backdrop -->
+    <div id="modal-backdrop" class="modal-backdrop hidden" onclick="closeModal()"></div>
+    <!-- Modal -->
+    <div id="modal" class="modal hidden">
+        <div class="modal-header">
+            <h3 id="modal-title">Confirm</h3>
+            <button class="modal-close" onclick="closeModal()">&times;</button>
+        </div>
+        <div class="modal-body" id="modal-body"></div>
+        <div class="modal-footer" id="modal-footer"></div>
+    </div>
+
+    <!-- ==================== LOGIN PAGE ==================== -->
+    <div id="page-login" class="page active">
+        <div class="login-container">
+            <div class="login-card">
+                <div class="login-logo">
+                    <div class="logo-icon">
+                        <svg viewBox="0 0 64 64" width="64" height="64">
+                            <rect x="8" y="20" width="48" height="36" rx="2" fill="#1a237e" opacity="0.9"/>
+                            <rect x="14" y="26" width="14" height="18" rx="1" fill="#e8eaf6"/>
+                            <rect x="34" y="26" width="14" height="18" rx="1" fill="#e8eaf6"/>
+                            <path d="M32 8 L52 20 H12 Z" fill="#1a237e"/>
+                            <rect x="28" y="44" width="8" height="12" rx="1" fill="#3949ab"/>
+                        </svg>
+                    </div>
+                    <h1>SmartLib</h1>
+                    <p class="login-subtitle">Smart University Library Management System</p>
+                </div>
+                <form id="login-form" onsubmit="handleLogin(event)">
+                    <div class="form-group">
+                        <label for="login-username">Username</label>
+                        <input type="text" id="login-username" placeholder="Enter your username" required autocomplete="off">
+                    </div>
+                    <div class="form-group">
+                        <label for="login-password">Password</label>
+                        <input type="password" id="login-password" placeholder="Enter your password" required>
+                    </div>
+                    <div id="login-error" class="form-error hidden"></div>
+                    <button type="submit" class="btn btn-primary btn-full">Sign In</button>
+                </form>
+                <div class="login-help">
+                    <p>Demo Credentials:</p>
+                    <div class="credentials-grid">
+                        <span class="cred-badge">Admin: admin / admin</span>
+                        <span class="cred-badge">Librarian: librarian / lib123</span>
+                        <span class="cred-badge">Student: student / student</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== STUDENT DASHBOARD ==================== -->
+    <div id="page-student" class="page">
+        <!-- Navigation -->
+        <nav class="navbar">
+            <div class="nav-brand" onclick="navigateTo('student-home')">
+                <svg viewBox="0 0 64 64" width="32" height="32">
+                    <rect x="8" y="20" width="48" height="36" rx="2" fill="#fff" opacity="0.9"/>
+                    <rect x="14" y="26" width="14" height="18" rx="1" fill="#1a237e"/>
+                    <rect x="34" y="26" width="14" height="18" rx="1" fill="#1a237e"/>
+                    <path d="M32 8 L52 20 H12 Z" fill="#fff"/>
+                    <rect x="28" y="44" width="8" height="12" rx="1" fill="#3949ab"/>
+                </svg>
+                <span>SmartLib</span>
+            </div>
+            <div class="nav-links">
+                <a href="#" class="nav-link active" data-view="student-home" onclick="navigateTo('student-home')">Home</a>
+                <a href="#" class="nav-link" data-view="student-search" onclick="navigateTo('student-search')">Search Books</a>
+                <a href="#" class="nav-link" data-view="student-borrowings" onclick="navigateTo('student-borrowings')">My Borrowings</a>
+                <a href="#" class="nav-link" data-view="student-reservations" onclick="navigateTo('student-reservations')">My Reservations</a>
+                <a href="#" class="nav-link" data-view="student-fines" onclick="navigateTo('student-fines')">My Fines</a>
+                <a href="#" class="nav-link" data-view="student-profile" onclick="navigateTo('student-profile')">Profile</a>
+            </div>
+            <div class="nav-user">
+                <span id="student-nav-name">Student</span>
+                <button class="btn btn-outline-light btn-sm" onclick="handleLogout()">Logout</button>
+            </div>
+            <button class="nav-toggle" onclick="toggleMobileNav()">&#9776;</button>
+        </nav>
+
+        <main class="main-content">
+            <!-- Student Home -->
+            <div id="view-student-home" class="view active">
+                <div class="page-header">
+                    <h2 id="student-welcome">Welcome back, Student!</h2>
+                    <p class="text-muted">Here's your library activity overview</p>
+                </div>
+                <div class="stats-grid">
+                    <div class="stat-card stat-blue">
+                        <div class="stat-icon">&#128214;</div>
+                        <div class="stat-info">
+                            <h3 id="stat-borrowed">0</h3>
+                            <p>Books Borrowed</p>
+                        </div>
+                    </div>
+                    <div class="stat-card stat-purple">
+                        <div class="stat-icon">&#128278;</div>
+                        <div class="stat-info">
+                            <h3 id="stat-reserved">0</h3>
+                            <p>Books Reserved</p>
+                        </div>
+                    </div>
+                    <div class="stat-card stat-red">
+                        <div class="stat-icon">&#128176;</div>
+                        <div class="stat-info">
+                            <h3 id="stat-fines">$0.00</h3>
+                            <p>Pending Fines</p>
+                        </div>
+                    </div>
+                    <div class="stat-card stat-orange">
+                        <div class="stat-icon">&#9200;</div>
+                        <div class="stat-info">
+                            <h3 id="stat-overdue">0</h3>
+                            <p>Overdue Books</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid-2">
+                    <div class="card">
+                        <div class="card-header"><h3>Due Date Reminders</h3></div>
+                        <div class="card-body" id="due-reminders">
+                            <p class="text-muted">No upcoming due dates</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header"><h3>Recent Activity</h3></div>
+                        <div class="card-body" id="recent-activity">
+                            <p class="text-muted">No recent activity</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Student Search -->
+            <div id="view-student-search" class="view">
+                <div class="page-header">
+                    <h2>Book Catalog</h2>
+                    <p class="text-muted">Search and browse our library collection</p>
+                </div>
+                <div class="search-section">
+                    <div class="search-bar">
+                        <input type="text" id="search-input" placeholder="Search by title, author, or ISBN..." oninput="handleSearch()">
+                        <button class="btn btn-primary" onclick="handleSearch()">Search</button>
+                    </div>
+                    <div class="search-filters">
+                        <select id="filter-category" onchange="handleSearch()">
+                            <option value="">All Categories</option>
+                            <option value="Fiction">Fiction</option>
+                            <option value="Science">Science</option>
+                            <option value="Technology">Technology</option>
+                            <option value="History">History</option>
+                            <option value="Mathematics">Mathematics</option>
+                            <option value="Philosophy">Philosophy</option>
+                            <option value="Psychology">Psychology</option>
+                            <option value="Business">Business</option>
+                        </select>
+                        <select id="filter-availability" onchange="handleSearch()">
+                            <option value="">All Availability</option>
+                            <option value="available">Available</option>
+                            <option value="unavailable">Unavailable</option>
+                        </select>
+                        <div class="view-toggle">
+                            <button class="btn btn-icon active" id="btn-grid-view" onclick="setViewMode('grid')" title="Grid View">&#9638;</button>
+                            <button class="btn btn-icon" id="btn-list-view" onclick="setViewMode('list')" title="List View">&#9776;</button>
+                        </div>
+                    </div>
+                </div>
+                <div id="search-results" class="book-grid"></div>
+            </div>
+
+            <!-- Book Details -->
+            <div id="view-book-details" class="view">
+                <button class="btn btn-link" onclick="navigateTo('student-search')">&larr; Back to Catalog</button>
+                <div id="book-detail-content"></div>
+            </div>
+
+            <!-- Student Borrowings -->
+            <div id="view-student-borrowings" class="view">
+                <div class="page-header">
+                    <h2>My Borrowings</h2>
+                    <p class="text-muted">Track your current and past borrowings</p>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Book Title</th>
+                                        <th>Borrow Date</th>
+                                        <th>Due Date</th>
+                                        <th>Return Date</th>
+                                        <th>Status</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="borrowings-table-body"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Student Reservations -->
+            <div id="view-student-reservations" class="view">
+                <div class="page-header">
+                    <h2>My Reservations</h2>
+                    <p class="text-muted">Manage your book reservations</p>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Book Title</th>
+                                        <th>Reservation Date</th>
+                                        <th>Status</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="reservations-table-body"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Student Fines -->
+            <div id="view-student-fines" class="view">
+                <div class="page-header">
+                    <h2>My Fines</h2>
+                    <p class="text-muted">View and pay outstanding fines</p>
+                </div>
+                <div class="card" style="margin-bottom:1.5rem;">
+                    <div class="card-body">
+                        <div class="fine-summary">
+                            <h3>Total Outstanding: <span id="total-fines" class="text-danger">$0.00</span></h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Book Title</th>
+                                        <th>Fine Amount</th>
+                                        <th>Date Issued</th>
+                                        <th>Status</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="fines-table-body"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Student Profile -->
+            <div id="view-student-profile" class="view">
+                <div class="page-header">
+                    <h2>My Profile</h2>
+                    <p class="text-muted">View and update your profile information</p>
+                </div>
+                <div class="card" style="max-width:600px;">
+                    <div class="card-body">
+                        <div class="profile-avatar">
+                            <div class="avatar-circle" id="profile-avatar-letter">S</div>
+                        </div>
+                        <form id="profile-form" onsubmit="handleProfileUpdate(event)">
+                            <div class="form-group">
+                                <label>Full Name</label>
+                                <input type="text" id="profile-name" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Email</label>
+                                <input type="email" id="profile-email" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Student ID</label>
+                                <input type="text" id="profile-studentid" disabled>
+                            </div>
+                            <div class="form-group">
+                                <label>Department</label>
+                                <input type="text" id="profile-dept" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Update Profile</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer class="footer">
+            <p>&copy; 2026 SmartLib - Smart University Library Management System | Version 1.0</p>
+        </footer>
+    </div>
+
+    <!-- ==================== LIBRARIAN DASHBOARD ==================== -->
+    <div id="page-librarian" class="page">
+        <nav class="navbar">
+            <div class="nav-brand" onclick="navigateTo('librarian-home')">
+                <svg viewBox="0 0 64 64" width="32" height="32">
+                    <rect x="8" y="20" width="48" height="36" rx="2" fill="#fff" opacity="0.9"/>
+                    <rect x="14" y="26" width="14" height="18" rx="1" fill="#1a237e"/>
+                    <rect x="34" y="26" width="14" height="18" rx="1" fill="#1a237e"/>
+                    <path d="M32 8 L52 20 H12 Z" fill="#fff"/>
+                    <rect x="28" y="44" width="8" height="12" rx="1" fill="#3949ab"/>
+                </svg>
+                <span>SmartLib</span>
+            </div>
+            <div class="nav-links">
+                <a href="#" class="nav-link active" data-view="librarian-home" onclick="navigateTo('librarian-home')">Dashboard</a>
+                <a href="#" class="nav-link" data-view="librarian-manage-books" onclick="navigateTo('librarian-manage-books')">Manage Books</a>
+                <a href="#" class="nav-link" data-view="librarian-issue" onclick="navigateTo('librarian-issue')">Issue Books</a>
+                <a href="#" class="nav-link" data-view="librarian-returns" onclick="navigateTo('librarian-returns')">Process Returns</a>
+                <a href="#" class="nav-link" data-view="librarian-reports" onclick="navigateTo('librarian-reports')">Reports</a>
+            </div>
+            <div class="nav-user">
+                <span>Librarian</span>
+                <button class="btn btn-outline-light btn-sm" onclick="handleLogout()">Logout</button>
+            </div>
+            <button class="nav-toggle" onclick="toggleMobileNav()">&#9776;</button>
+        </nav>
+
+        <main class="main-content">
+            <!-- Librarian Home -->
+            <div id="view-librarian-home" class="view active">
+                <div class="page-header">
+                    <h2>Librarian Dashboard</h2>
+                    <p class="text-muted">Library overview and quick actions</p>
+                </div>
+                <div class="stats-grid">
+                    <div class="stat-card stat-blue">
+                        <div class="stat-icon">&#128218;</div>
+                        <div class="stat-info">
+                            <h3 id="lib-stat-total">0</h3>
+                            <p>Total Books</p>
+                        </div>
+                    </div>
+                    <div class="stat-card stat-green">
+                        <div class="stat-icon">&#128228;</div>
+                        <div class="stat-info">
+                            <h3 id="lib-stat-issued">0</h3>
+                            <p>Books Issued</p>
+                        </div>
+                    </div>
+                    <div class="stat-card stat-red">
+                        <div class="stat-icon">&#9888;</div>
+                        <div class="stat-info">
+                            <h3 id="lib-stat-overdue">0</h3>
+                            <p>Overdue Books</p>
+                        </div>
+                    </div>
+                    <div class="stat-card stat-purple">
+                        <div class="stat-icon">&#128101;</div>
+                        <div class="stat-info">
+                            <h3 id="lib-stat-members">0</h3>
+                            <p>Active Members</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid-2">
+                    <div class="card">
+                        <div class="card-header"><h3>Recent Transactions</h3></div>
+                        <div class="card-body" id="lib-recent-transactions"></div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header"><h3>Quick Actions</h3></div>
+                        <div class="card-body">
+                            <div class="quick-actions">
+                                <button class="btn btn-primary" onclick="navigateTo('librarian-issue')">Issue Book</button>
+                                <button class="btn btn-success" onclick="navigateTo('librarian-returns')">Process Return</button>
+                                <button class="btn btn-secondary" onclick="navigateTo('librarian-manage-books')">Add New Book</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Manage Books -->
+            <div id="view-librarian-manage-books" class="view">
+                <div class="page-header">
+                    <h2>Manage Books</h2>
+                    <p class="text-muted">Add, edit, and remove books from the catalog</p>
+                </div>
+                <div class="card" style="margin-bottom:1.5rem;">
+                    <div class="card-header">
+                        <h3 id="book-form-title">Add New Book</h3>
+                    </div>
+                    <div class="card-body">
+                        <form id="book-form" onsubmit="handleBookForm(event)">
+                            <input type="hidden" id="book-edit-id">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Title *</label>
+                                    <input type="text" id="book-title" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Author *</label>
+                                    <input type="text" id="book-author" required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>ISBN *</label>
+                                    <input type="text" id="book-isbn" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Category *</label>
+                                    <select id="book-category" required>
+                                        <option value="">Select Category</option>
+                                        <option value="Fiction">Fiction</option>
+                                        <option value="Science">Science</option>
+                                        <option value="Technology">Technology</option>
+                                        <option value="History">History</option>
+                                        <option value="Mathematics">Mathematics</option>
+                                        <option value="Philosophy">Philosophy</option>
+                                        <option value="Psychology">Psychology</option>
+                                        <option value="Business">Business</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Publisher</label>
+                                    <input type="text" id="book-publisher">
+                                </div>
+                                <div class="form-group">
+                                    <label>Year</label>
+                                    <input type="number" id="book-year" min="1900" max="2026">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Total Copies *</label>
+                                    <input type="number" id="book-copies" min="1" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Location</label>
+                                    <input type="text" id="book-location" placeholder="e.g. Shelf A3">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Description</label>
+                                <textarea id="book-description" rows="3"></textarea>
+                            </div>
+                            <div class="form-actions">
+                                <button type="submit" class="btn btn-primary" id="book-form-btn">Add Book</button>
+                                <button type="button" class="btn btn-secondary" onclick="resetBookForm()">Cancel</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Book Inventory</h3>
+                        <input type="text" id="manage-book-search" placeholder="Search books..." oninput="renderManageBooks()" class="header-search">
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Title</th>
+                                        <th>Author</th>
+                                        <th>ISBN</th>
+                                        <th>Category</th>
+                                        <th>Copies</th>
+                                        <th>Available</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="manage-books-table"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Issue Books -->
+            <div id="view-librarian-issue" class="view">
+                <div class="page-header">
+                    <h2>Issue Books</h2>
+                    <p class="text-muted">Issue books to registered students</p>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <form id="issue-form" onsubmit="handleIssueBook(event)">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Student *</label>
+                                    <select id="issue-student" required>
+                                        <option value="">Select Student</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Book *</label>
+                                    <select id="issue-book" required>
+                                        <option value="">Select Book</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Issue Date</label>
+                                    <input type="date" id="issue-date" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Due Date</label>
+                                    <input type="date" id="issue-due-date" required>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Issue Book</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Process Returns -->
+            <div id="view-librarian-returns" class="view">
+                <div class="page-header">
+                    <h2>Process Returns</h2>
+                    <p class="text-muted">Process book returns and manage overdue items</p>
+                </div>
+                <div class="card">
+                    <div class="card-header"><h3>Active Borrowings</h3></div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Student</th>
+                                        <th>Book Title</th>
+                                        <th>Borrow Date</th>
+                                        <th>Due Date</th>
+                                        <th>Status</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="returns-table-body"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Librarian Reports -->
+            <div id="view-librarian-reports" class="view">
+                <div class="page-header">
+                    <h2>Reports</h2>
+                    <p class="text-muted">Library analytics and statistics</p>
+                </div>
+                <div class="grid-2">
+                    <div class="card">
+                        <div class="card-header"><h3>Books by Category</h3></div>
+                        <div class="card-body">
+                            <div id="lib-chart-categories" class="bar-chart"></div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header"><h3>Popular Books</h3></div>
+                        <div class="card-body" id="lib-popular-books"></div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer class="footer">
+            <p>&copy; 2026 SmartLib - Smart University Library Management System | Version 1.0</p>
+        </footer>
+    </div>
+
+    <!-- ==================== ADMIN DASHBOARD ==================== -->
+    <div id="page-admin" class="page">
+        <nav class="navbar">
+            <div class="nav-brand" onclick="navigateTo('admin-home')">
+                <svg viewBox="0 0 64 64" width="32" height="32">
+                    <rect x="8" y="20" width="48" height="36" rx="2" fill="#fff" opacity="0.9"/>
+                    <rect x="14" y="26" width="14" height="18" rx="1" fill="#1a237e"/>
+                    <rect x="34" y="26" width="14" height="18" rx="1" fill="#1a237e"/>
+                    <path d="M32 8 L52 20 H12 Z" fill="#fff"/>
+                    <rect x="28" y="44" width="8" height="12" rx="1" fill="#3949ab"/>
+                </svg>
+                <span>SmartLib</span>
+            </div>
+            <div class="nav-links">
+                <a href="#" class="nav-link active" data-view="admin-home" onclick="navigateTo('admin-home')">Dashboard</a>
+                <a href="#" class="nav-link" data-view="admin-users" onclick="navigateTo('admin-users')">User Management</a>
+                <a href="#" class="nav-link" data-view="admin-reports" onclick="navigateTo('admin-reports')">System Reports</a>
+                <a href="#" class="nav-link" data-view="admin-settings" onclick="navigateTo('admin-settings')">Settings</a>
+            </div>
+            <div class="nav-user">
+                <span>Administrator</span>
+                <button class="btn btn-outline-light btn-sm" onclick="handleLogout()">Logout</button>
+            </div>
+            <button class="nav-toggle" onclick="toggleMobileNav()">&#9776;</button>
+        </nav>
+
+        <main class="main-content">
+            <!-- Admin Home -->
+            <div id="view-admin-home" class="view active">
+                <div class="page-header">
+                    <h2>Admin Dashboard</h2>
+                    <p class="text-muted">System overview and management</p>
+                </div>
+                <div class="stats-grid">
+                    <div class="stat-card stat-blue">
+                        <div class="stat-icon">&#128218;</div>
+                        <div class="stat-info">
+                            <h3 id="admin-stat-books">0</h3>
+                            <p>Total Books</p>
+                        </div>
+                    </div>
+                    <div class="stat-card stat-green">
+                        <div class="stat-icon">&#128101;</div>
+                        <div class="stat-info">
+                            <h3 id="admin-stat-users">0</h3>
+                            <p>Total Users</p>
+                        </div>
+                    </div>
+                    <div class="stat-card stat-purple">
+                        <div class="stat-icon">&#128228;</div>
+                        <div class="stat-info">
+                            <h3 id="admin-stat-borrows">0</h3>
+                            <p>Active Borrowings</p>
+                        </div>
+                    </div>
+                    <div class="stat-card stat-red">
+                        <div class="stat-icon">&#128176;</div>
+                        <div class="stat-info">
+                            <h3 id="admin-stat-fines">$0.00</h3>
+                            <p>Total Fines Collected</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid-2">
+                    <div class="card">
+                        <div class="card-header"><h3>Borrowings by Month</h3></div>
+                        <div class="card-body">
+                            <div id="admin-chart-monthly" class="bar-chart"></div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header"><h3>System Status</h3></div>
+                        <div class="card-body">
+                            <div class="system-status">
+                                <div class="status-row"><span>Database</span><span class="badge badge-success">Online</span></div>
+                                <div class="status-row"><span>Search Index</span><span class="badge badge-success">Active</span></div>
+                                <div class="status-row"><span>Email Notifications</span><span class="badge badge-success">Running</span></div>
+                                <div class="status-row"><span>Backup</span><span class="badge badge-warning">Scheduled</span></div>
+                                <div class="status-row"><span>Last Maintenance</span><span class="badge badge-info">2026-03-28</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Admin Users -->
+            <div id="view-admin-users" class="view">
+                <div class="page-header">
+                    <h2>User Management</h2>
+                    <p class="text-muted">Manage system users and permissions</p>
+                </div>
+                <div class="card" style="margin-bottom:1.5rem;">
+                    <div class="card-header">
+                        <h3 id="user-form-title">Add New User</h3>
+                    </div>
+                    <div class="card-body">
+                        <form id="user-form" onsubmit="handleUserForm(event)">
+                            <input type="hidden" id="user-edit-id">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Full Name *</label>
+                                    <input type="text" id="user-fullname" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Username *</label>
+                                    <input type="text" id="user-username" required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Email *</label>
+                                    <input type="email" id="user-email" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Role *</label>
+                                    <select id="user-role" required>
+                                        <option value="">Select Role</option>
+                                        <option value="admin">Admin</option>
+                                        <option value="librarian">Librarian</option>
+                                        <option value="student">Student</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Password *</label>
+                                    <input type="password" id="user-password">
+                                    <small class="text-muted">Leave blank when editing to keep current password</small>
+                                </div>
+                                <div class="form-group">
+                                    <label>Department</label>
+                                    <input type="text" id="user-department">
+                                </div>
+                            </div>
+                            <div class="form-actions">
+                                <button type="submit" class="btn btn-primary" id="user-form-btn">Add User</button>
+                                <button type="button" class="btn btn-secondary" onclick="resetUserForm()">Cancel</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <h3>All Users</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Username</th>
+                                        <th>Email</th>
+                                        <th>Role</th>
+                                        <th>Department</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="users-table-body"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Admin Reports -->
+            <div id="view-admin-reports" class="view">
+                <div class="page-header">
+                    <h2>System Reports</h2>
+                    <p class="text-muted">Comprehensive library statistics and analytics</p>
+                </div>
+                <div class="grid-2">
+                    <div class="card">
+                        <div class="card-header"><h3>Books by Category</h3></div>
+                        <div class="card-body">
+                            <div id="admin-chart-categories" class="bar-chart"></div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header"><h3>Overdue Statistics</h3></div>
+                        <div class="card-body" id="admin-overdue-stats"></div>
+                    </div>
+                </div>
+                <div class="card" style="margin-top:1.5rem;">
+                    <div class="card-header"><h3>Most Popular Books</h3></div>
+                    <div class="card-body" id="admin-popular-books"></div>
+                </div>
+            </div>
+
+            <!-- Admin Settings -->
+            <div id="view-admin-settings" class="view">
+                <div class="page-header">
+                    <h2>System Settings</h2>
+                    <p class="text-muted">Configure library system parameters</p>
+                </div>
+                <div class="card" style="max-width:700px;">
+                    <div class="card-body">
+                        <form id="settings-form" onsubmit="handleSettingsForm(event)">
+                            <div class="form-group">
+                                <label>Library Name</label>
+                                <input type="text" id="setting-lib-name" value="Smart University Library">
+                            </div>
+                            <div class="form-group">
+                                <label>Maximum Books Per Student</label>
+                                <input type="number" id="setting-max-books" value="5" min="1" max="20">
+                            </div>
+                            <div class="form-group">
+                                <label>Default Loan Period (Days)</label>
+                                <input type="number" id="setting-loan-days" value="14" min="1" max="90">
+                            </div>
+                            <div class="form-group">
+                                <label>Fine Per Day (USD)</label>
+                                <input type="number" id="setting-fine-rate" value="0.50" min="0" step="0.1">
+                            </div>
+                            <div class="form-group">
+                                <label>Reservation Expiry (Days)</label>
+                                <input type="number" id="setting-reservation-days" value="3" min="1" max="14">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Save Settings</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="card" style="max-width:700px;margin-top:1.5rem;">
+                    <div class="card-header"><h3>Data Management</h3></div>
+                    <div class="card-body">
+                        <p class="text-muted" style="margin-bottom:1rem;">Reset all data to default sample data. This action cannot be undone.</p>
+                        <button class="btn btn-danger" onclick="confirmResetData()">Reset All Data</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer class="footer">
+            <p>&copy; 2026 SmartLib - Smart University Library Management System | Version 1.0</p>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
