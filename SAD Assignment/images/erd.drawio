@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net" modified="2026-04-06" type="device">
+  <diagram name="ERD (SAD)" id="erd-sad">
+    <mxGraphModel dx="1600" dy="1000" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1900" pageHeight="1300" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- Title -->
+        <mxCell id="title" value="Entity-Relationship Diagram — SmartLib (SAD — Detailed View)" style="text;html=1;fontSize=20;fontStyle=1;fontColor=#1A1A2E;align=center;verticalAlign=middle;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="500" y="20" width="700" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- ========== USERS ENTITY ========== -->
+        <mxCell id="users_header" value="Users" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#2B4066;fontColor=#FFFFFF;strokeColor=#1A1A2E;strokeWidth=2;fontSize=14;fontStyle=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="60" y="100" width="340" height="36" as="geometry" />
+        </mxCell>
+        <mxCell id="users_body" value="&lt;div style=&quot;text-align:left;padding:8px;font-size:11px;line-height:1.7;font-family:monospace;&quot;&gt;&lt;u&gt;id&lt;/u&gt; : INT (PK, AUTO_INCREMENT)&lt;br&gt;fullName : VARCHAR(100) NOT NULL&lt;br&gt;username : VARCHAR(50) UNIQUE NOT NULL&lt;br&gt;password : VARCHAR(255) NOT NULL&lt;br&gt;role : ENUM('student','librarian','admin')&lt;br&gt;email : VARCHAR(100) UNIQUE&lt;br&gt;department : VARCHAR(100)&lt;br&gt;studentId : VARCHAR(20) UNIQUE&lt;/div&gt;" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#F5F0EB;fontColor=#1A1A2E;strokeColor=#1A1A2E;strokeWidth=2;fontSize=11;align=left;verticalAlign=top;overflow=fill;" vertex="1" parent="1">
+          <mxGeometry x="60" y="136" width="340" height="200" as="geometry" />
+        </mxCell>
+
+        <!-- ========== BOOKS ENTITY ========== -->
+        <mxCell id="books_header" value="Books" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#2B4066;fontColor=#FFFFFF;strokeColor=#1A1A2E;strokeWidth=2;fontSize=14;fontStyle=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="60" y="720" width="340" height="36" as="geometry" />
+        </mxCell>
+        <mxCell id="books_body" value="&lt;div style=&quot;text-align:left;padding:8px;font-size:11px;line-height:1.7;font-family:monospace;&quot;&gt;&lt;u&gt;id&lt;/u&gt; : INT (PK, AUTO_INCREMENT)&lt;br&gt;title : VARCHAR(200) NOT NULL&lt;br&gt;author : VARCHAR(150) NOT NULL&lt;br&gt;isbn : VARCHAR(20) UNIQUE NOT NULL&lt;br&gt;category : VARCHAR(50)&lt;br&gt;publisher : VARCHAR(150)&lt;br&gt;year : INT&lt;br&gt;totalCopies : INT DEFAULT 1&lt;br&gt;availableCopies : INT DEFAULT 1&lt;br&gt;location : VARCHAR(50)&lt;br&gt;description : TEXT&lt;/div&gt;" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#F5F0EB;fontColor=#1A1A2E;strokeColor=#1A1A2E;strokeWidth=2;fontSize=11;align=left;verticalAlign=top;overflow=fill;" vertex="1" parent="1">
+          <mxGeometry x="60" y="756" width="340" height="260" as="geometry" />
+        </mxCell>
+
+        <!-- ========== BORROWINGS ENTITY ========== -->
+        <mxCell id="borr_header" value="Borrowings" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#C4603C;fontColor=#FFFFFF;strokeColor=#1A1A2E;strokeWidth=2;fontSize=14;fontStyle=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="680" y="100" width="340" height="36" as="geometry" />
+        </mxCell>
+        <mxCell id="borr_body" value="&lt;div style=&quot;text-align:left;padding:8px;font-size:11px;line-height:1.7;font-family:monospace;&quot;&gt;&lt;u&gt;id&lt;/u&gt; : INT (PK, AUTO_INCREMENT)&lt;br&gt;userId : INT (FK → Users.id)&lt;br&gt;bookId : INT (FK → Books.id)&lt;br&gt;borrowDate : DATE NOT NULL&lt;br&gt;dueDate : DATE NOT NULL&lt;br&gt;returnDate : DATE&lt;br&gt;status : ENUM('active','returned',&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;'overdue')&lt;/div&gt;" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#F5F0EB;fontColor=#1A1A2E;strokeColor=#1A1A2E;strokeWidth=2;fontSize=11;align=left;verticalAlign=top;overflow=fill;" vertex="1" parent="1">
+          <mxGeometry x="680" y="136" width="340" height="200" as="geometry" />
+        </mxCell>
+
+        <!-- ========== RESERVATIONS ENTITY ========== -->
+        <mxCell id="res_header" value="Reservations" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#C4603C;fontColor=#FFFFFF;strokeColor=#1A1A2E;strokeWidth=2;fontSize=14;fontStyle=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="680" y="460" width="340" height="36" as="geometry" />
+        </mxCell>
+        <mxCell id="res_body" value="&lt;div style=&quot;text-align:left;padding:8px;font-size:11px;line-height:1.7;font-family:monospace;&quot;&gt;&lt;u&gt;id&lt;/u&gt; : INT (PK, AUTO_INCREMENT)&lt;br&gt;userId : INT (FK → Users.id)&lt;br&gt;bookId : INT (FK → Books.id)&lt;br&gt;reservationDate : DATETIME NOT NULL&lt;br&gt;status : ENUM('pending','fulfilled',&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;'expired','cancelled')&lt;/div&gt;" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#F5F0EB;fontColor=#1A1A2E;strokeColor=#1A1A2E;strokeWidth=2;fontSize=11;align=left;verticalAlign=top;overflow=fill;" vertex="1" parent="1">
+          <mxGeometry x="680" y="496" width="340" height="160" as="geometry" />
+        </mxCell>
+
+        <!-- ========== FINES ENTITY ========== -->
+        <mxCell id="fines_header" value="Fines" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#C4603C;fontColor=#FFFFFF;strokeColor=#1A1A2E;strokeWidth=2;fontSize=14;fontStyle=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="680" y="780" width="340" height="36" as="geometry" />
+        </mxCell>
+        <mxCell id="fines_body" value="&lt;div style=&quot;text-align:left;padding:8px;font-size:11px;line-height:1.7;font-family:monospace;&quot;&gt;&lt;u&gt;id&lt;/u&gt; : INT (PK, AUTO_INCREMENT)&lt;br&gt;userId : INT (FK → Users.id)&lt;br&gt;bookId : INT (FK → Books.id)&lt;br&gt;amount : DECIMAL(10,2) NOT NULL&lt;br&gt;dateIssued : DATE NOT NULL&lt;br&gt;status : ENUM('unpaid','paid')&lt;/div&gt;" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#F5F0EB;fontColor=#1A1A2E;strokeColor=#1A1A2E;strokeWidth=2;fontSize=11;align=left;verticalAlign=top;overflow=fill;" vertex="1" parent="1">
+          <mxGeometry x="680" y="816" width="340" height="160" as="geometry" />
+        </mxCell>
+
+        <!-- ========== SETTINGS ENTITY ========== -->
+        <mxCell id="settings_header" value="Settings" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#2B4066;fontColor=#FFFFFF;strokeColor=#1A1A2E;strokeWidth=2;fontSize=14;fontStyle=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="1320" y="460" width="340" height="36" as="geometry" />
+        </mxCell>
+        <mxCell id="settings_body" value="&lt;div style=&quot;text-align:left;padding:8px;font-size:11px;line-height:1.7;font-family:monospace;&quot;&gt;libraryName : VARCHAR(100)&lt;br&gt;maxBooksPerStudent : INT DEFAULT 3&lt;br&gt;loanPeriodDays : INT DEFAULT 14&lt;br&gt;finePerDay : DECIMAL(5,2) DEFAULT 1.00&lt;br&gt;reservationExpiryDays : INT DEFAULT 3&lt;/div&gt;" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#F5F0EB;fontColor=#1A1A2E;strokeColor=#1A1A2E;strokeWidth=2;fontSize=11;align=left;verticalAlign=top;overflow=fill;" vertex="1" parent="1">
+          <mxGeometry x="1320" y="496" width="340" height="130" as="geometry" />
+        </mxCell>
+
+        <!-- ========== RELATIONSHIPS ========== -->
+        <!-- Users 1 --M Borrowings -->
+        <mxCell id="rel1" value="" style="endArrow=ERmany;startArrow=ERone;html=1;strokeColor=#2B4066;strokeWidth=2;exitX=1;exitY=0.15;exitDx=0;exitDy=0;entryX=0;entryY=0.2;entryDx=0;entryDy=0;" edge="1" parent="1" source="users_body" target="borr_body">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel1_label" value="&lt;b&gt;1&lt;/b&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; borrows &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &lt;b&gt;M&lt;/b&gt;" style="text;html=1;fontSize=10;fontColor=#2B4066;align=center;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="430" y="150" width="220" height="18" as="geometry" />
+        </mxCell>
+
+        <!-- Users 1 --M Reservations -->
+        <mxCell id="rel2" value="" style="endArrow=ERmany;startArrow=ERone;html=1;strokeColor=#2B4066;strokeWidth=2;exitX=1;exitY=0.7;exitDx=0;exitDy=0;entryX=0;entryY=0.3;entryDx=0;entryDy=0;" edge="1" parent="1" source="users_body" target="res_body">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="520" y="276" />
+              <mxPoint x="520" y="544" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel2_label" value="&lt;b&gt;1 &amp;nbsp; M&lt;/b&gt; &lt;i&gt;reserves&lt;/i&gt;" style="text;html=1;fontSize=10;fontColor=#2B4066;align=center;" vertex="1" parent="1">
+          <mxGeometry x="465" y="390" width="110" height="18" as="geometry" />
+        </mxCell>
+
+        <!-- Users 1 --M Fines -->
+        <mxCell id="rel3" value="" style="endArrow=ERmany;startArrow=ERone;html=1;strokeColor=#2B4066;strokeWidth=2;exitX=0.7;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.3;entryDx=0;entryDy=0;" edge="1" parent="1" source="users_body" target="fines_body">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="298" y="500" />
+              <mxPoint x="560" y="500" />
+              <mxPoint x="560" y="864" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel3_label" value="&lt;b&gt;1 &amp;nbsp; M&lt;/b&gt; &lt;i&gt;incurs&lt;/i&gt;" style="text;html=1;fontSize=10;fontColor=#2B4066;align=center;" vertex="1" parent="1">
+          <mxGeometry x="490" y="680" width="100" height="18" as="geometry" />
+        </mxCell>
+
+        <!-- Books 1 --M Borrowings -->
+        <mxCell id="rel4" value="" style="endArrow=ERmany;startArrow=ERone;html=1;strokeColor=#C4603C;strokeWidth=2;exitX=0.7;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="books_body" target="borr_body">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="298" y="680" />
+              <mxPoint x="850" y="680" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel4_label" value="&lt;b&gt;1&lt;/b&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &lt;b&gt;M&lt;/b&gt;" style="text;html=1;fontSize=10;fontColor=#C4603C;align=center;" vertex="1" parent="1">
+          <mxGeometry x="420" y="658" width="260" height="18" as="geometry" />
+        </mxCell>
+
+        <!-- Books 1 --M Reservations -->
+        <mxCell id="rel5" value="" style="endArrow=ERmany;startArrow=ERone;html=1;strokeColor=#C4603C;strokeWidth=2;exitX=1;exitY=0.2;exitDx=0;exitDy=0;entryX=0;entryY=0.7;entryDx=0;entryDy=0;" edge="1" parent="1" source="books_body" target="res_body">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="540" y="808" />
+              <mxPoint x="540" y="608" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel5_label" value="&lt;b&gt;1 &amp;nbsp; M&lt;/b&gt;" style="text;html=1;fontSize=10;fontColor=#C4603C;align=center;" vertex="1" parent="1">
+          <mxGeometry x="538" y="610" width="50" height="18" as="geometry" />
+        </mxCell>
+
+        <!-- Books 1 --M Fines -->
+        <mxCell id="rel6" value="" style="endArrow=ERmany;startArrow=ERone;html=1;strokeColor=#C4603C;strokeWidth=2;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.7;entryDx=0;entryDy=0;" edge="1" parent="1" source="books_body" target="fines_body">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="480" y="886" />
+              <mxPoint x="480" y="928" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel6_label" value="&lt;b&gt;1&lt;/b&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &lt;b&gt;M&lt;/b&gt;" style="text;html=1;fontSize=10;fontColor=#C4603C;align=center;" vertex="1" parent="1">
+          <mxGeometry x="440" y="940" width="180" height="18" as="geometry" />
+        </mxCell>
+
+        <!-- Settings annotation -->
+        <mxCell id="settings_note" value="Settings is a singleton&lt;br&gt;configuration table.&lt;br&gt;No foreign key relationships.&lt;br&gt;Managed by Admin role only." style="shape=note;whiteSpace=wrap;html=1;fillColor=#FFFFFF;fontColor=#1A1A2E;strokeColor=#2B4066;strokeWidth=1;fontSize=10;size=14;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="1370" y="670" width="200" height="80" as="geometry" />
+        </mxCell>
+
+        <!-- Cardinality Note -->
+        <mxCell id="card_note" value="&lt;b&gt;Notation:&lt;/b&gt; PK = Primary Key, FK = Foreign Key&lt;br&gt;All FK columns have ON DELETE CASCADE constraints.&lt;br&gt;ENUM types enforce data integrity at the database level." style="shape=note;whiteSpace=wrap;html=1;fillColor=#FFFFFF;fontColor=#1A1A2E;strokeColor=#1A1A2E;strokeWidth=1;fontSize=10;size=14;align=left;verticalAlign=middle;spacingLeft=8;" vertex="1" parent="1">
+          <mxGeometry x="1280" y="160" width="320" height="70" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
