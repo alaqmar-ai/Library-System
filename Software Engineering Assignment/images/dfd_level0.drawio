@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net" modified="2026-04-06" type="device">
+  <diagram name="DFD Level 0" id="dfd-level0-se">
+    <mxGraphModel dx="1422" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- Title -->
+        <mxCell id="title" value="Data Flow Diagram — Level 0" style="text;html=1;fontSize=20;fontStyle=1;fontColor=#1A1A2E;align=center;verticalAlign=middle;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="500" y="20" width="600" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- Central Process (Circle) -->
+        <mxCell id="process" value="&lt;b&gt;0&lt;/b&gt;&lt;br&gt;&lt;br&gt;SmartLib&lt;br&gt;System" style="ellipse;whiteSpace=wrap;html=1;fillColor=#2B4066;fontColor=#FFFFFF;strokeColor=#1A1A2E;strokeWidth=2;fontSize=13;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="640" y="370" width="200" height="200" as="geometry" />
+        </mxCell>
+
+        <!-- External Entity: Student -->
+        <mxCell id="student" value="&lt;b&gt;Student&lt;/b&gt;" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#F5F0EB;fontColor=#1A1A2E;strokeColor=#2B4066;strokeWidth=2;fontSize=13;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="100" y="160" width="150" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- External Entity: Librarian -->
+        <mxCell id="librarian" value="&lt;b&gt;Librarian&lt;/b&gt;" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#F5F0EB;fontColor=#1A1A2E;strokeColor=#2B4066;strokeWidth=2;fontSize=13;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="100" y="710" width="150" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- External Entity: Admin -->
+        <mxCell id="admin" value="&lt;b&gt;Admin&lt;/b&gt;" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#F5F0EB;fontColor=#1A1A2E;strokeColor=#2B4066;strokeWidth=2;fontSize=13;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="1300" y="160" width="150" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- Data Store: D1 - Books -->
+        <mxCell id="d1" value="D1 &amp;nbsp; &amp;nbsp; Books" style="shape=partialRectangle;whiteSpace=wrap;html=1;fillColor=#FFFFFF;fontColor=#1A1A2E;strokeColor=#2B4066;strokeWidth=1.5;fontSize=12;top=0;right=0;bottom=1;left=1;shadow=0;align=left;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="1220" y="420" width="200" height="36" as="geometry" />
+        </mxCell>
+
+        <!-- Data Store: D2 - Users -->
+        <mxCell id="d2" value="D2 &amp;nbsp; &amp;nbsp; Users" style="shape=partialRectangle;whiteSpace=wrap;html=1;fillColor=#FFFFFF;fontColor=#1A1A2E;strokeColor=#2B4066;strokeWidth=1.5;fontSize=12;top=0;right=0;bottom=1;left=1;shadow=0;align=left;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="1220" y="490" width="200" height="36" as="geometry" />
+        </mxCell>
+
+        <!-- Data Store: D3 - Borrowings -->
+        <mxCell id="d3" value="D3 &amp;nbsp; &amp;nbsp; Borrowings" style="shape=partialRectangle;whiteSpace=wrap;html=1;fillColor=#FFFFFF;fontColor=#1A1A2E;strokeColor=#2B4066;strokeWidth=1.5;fontSize=12;top=0;right=0;bottom=1;left=1;shadow=0;align=left;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="1220" y="560" width="200" height="36" as="geometry" />
+        </mxCell>
+
+        <!-- Data Store: D4 - Reservations -->
+        <mxCell id="d4" value="D4 &amp;nbsp; &amp;nbsp; Reservations" style="shape=partialRectangle;whiteSpace=wrap;html=1;fillColor=#FFFFFF;fontColor=#1A1A2E;strokeColor=#2B4066;strokeWidth=1.5;fontSize=12;top=0;right=0;bottom=1;left=1;shadow=0;align=left;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="1220" y="630" width="200" height="36" as="geometry" />
+        </mxCell>
+
+        <!-- Data Store: D5 - Fines -->
+        <mxCell id="d5" value="D5 &amp;nbsp; &amp;nbsp; Fines" style="shape=partialRectangle;whiteSpace=wrap;html=1;fillColor=#FFFFFF;fontColor=#1A1A2E;strokeColor=#2B4066;strokeWidth=1.5;fontSize=12;top=0;right=0;bottom=1;left=1;shadow=0;align=left;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="1220" y="700" width="200" height="36" as="geometry" />
+        </mxCell>
+
+        <!-- Flow: Student -> System -->
+        <mxCell id="f1" value="Search queries, Borrow/Return&lt;br&gt;requests, Fine payments,&lt;br&gt;Reservation requests" style="rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#2B4066;strokeWidth=1.5;fontColor=#1A1A2E;fontSize=10;labelBackgroundColor=#FFFFFF;entryX=0;entryY=0.25;entryDx=0;entryDy=0;" edge="1" parent="1" source="student" target="process">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="400" y="185" />
+              <mxPoint x="400" y="420" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Flow: System -> Student -->
+        <mxCell id="f2" value="Search results, Book details,&lt;br&gt;Borrowing confirmations,&lt;br&gt;Fine receipts" style="rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#2B4066;strokeWidth=1.5;fontColor=#1A1A2E;fontSize=10;labelBackgroundColor=#FFFFFF;dashed=1;exitX=0;exitY=0.25;exitDx=0;exitDy=0;" edge="1" parent="1" source="process" target="student">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="500" y="420" />
+              <mxPoint x="500" y="280" />
+              <mxPoint x="175" y="280" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Flow: Librarian -> System -->
+        <mxCell id="f3" value="Book catalog updates,&lt;br&gt;Issue/Return processing,&lt;br&gt;Report requests" style="rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#2B4066;strokeWidth=1.5;fontColor=#1A1A2E;fontSize=10;labelBackgroundColor=#FFFFFF;entryX=0;entryY=0.75;entryDx=0;entryDy=0;" edge="1" parent="1" source="librarian" target="process">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="400" y="735" />
+              <mxPoint x="400" y="520" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Flow: System -> Librarian -->
+        <mxCell id="f4" value="Reports, Alerts,&lt;br&gt;Confirmations" style="rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#2B4066;strokeWidth=1.5;fontColor=#1A1A2E;fontSize=10;labelBackgroundColor=#FFFFFF;dashed=1;exitX=0;exitY=0.75;exitDx=0;exitDy=0;" edge="1" parent="1" source="process" target="librarian">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="500" y="520" />
+              <mxPoint x="500" y="640" />
+              <mxPoint x="175" y="640" />
+              <mxPoint x="175" y="710" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Flow: Admin -> System -->
+        <mxCell id="f5" value="User management,&lt;br&gt;System configuration" style="rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#2B4066;strokeWidth=1.5;fontColor=#1A1A2E;fontSize=10;labelBackgroundColor=#FFFFFF;entryX=1;entryY=0.25;entryDx=0;entryDy=0;" edge="1" parent="1" source="admin" target="process">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1100" y="185" />
+              <mxPoint x="1100" y="420" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Flow: System -> Admin -->
+        <mxCell id="f6" value="System reports,&lt;br&gt;Confirmations" style="rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#2B4066;strokeWidth=1.5;fontColor=#1A1A2E;fontSize=10;labelBackgroundColor=#FFFFFF;dashed=1;" edge="1" parent="1" source="process" target="admin">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="980" y="420" />
+              <mxPoint x="980" y="280" />
+              <mxPoint x="1375" y="280" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Flow: System -> D1 Books -->
+        <mxCell id="f7" value="Book data" style="rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#C4603C;strokeWidth=1.5;fontColor=#1A1A2E;fontSize=10;labelBackgroundColor=#FFFFFF;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="process" target="d1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1050" y="438" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Flow: System -> D2 Users -->
+        <mxCell id="f8" value="User data" style="rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#C4603C;strokeWidth=1.5;fontColor=#1A1A2E;fontSize=10;labelBackgroundColor=#FFFFFF;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="process" target="d2">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1050" y="470" />
+              <mxPoint x="1050" y="508" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Flow: System -> D3 Borrowings -->
+        <mxCell id="f9" value="Borrowing records" style="rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#C4603C;strokeWidth=1.5;fontColor=#1A1A2E;fontSize=10;labelBackgroundColor=#FFFFFF;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="process" target="d3">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1050" y="500" />
+              <mxPoint x="1050" y="578" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Flow: System -> D4 Reservations -->
+        <mxCell id="f10" value="Reservation data" style="rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#C4603C;strokeWidth=1.5;fontColor=#1A1A2E;fontSize=10;labelBackgroundColor=#FFFFFF;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="process" target="d4">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1000" y="530" />
+              <mxPoint x="1000" y="648" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Flow: System -> D5 Fines -->
+        <mxCell id="f11" value="Fine records" style="rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#C4603C;strokeWidth=1.5;fontColor=#1A1A2E;fontSize=10;labelBackgroundColor=#FFFFFF;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="process" target="d5">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="950" y="560" />
+              <mxPoint x="950" y="718" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Legend -->
+        <mxCell id="legend_bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#1A1A2E;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="860" width="380" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="legend_title" value="&lt;b&gt;Legend&lt;/b&gt;" style="text;html=1;fontSize=11;fontColor=#1A1A2E;align=left;" vertex="1" parent="1">
+          <mxGeometry x="70" y="865" width="100" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="leg_proc" value="" style="ellipse;whiteSpace=wrap;html=1;fillColor=#2B4066;strokeColor=#1A1A2E;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="890" width="24" height="24" as="geometry" />
+        </mxCell>
+        <mxCell id="leg_proc_t" value="Process" style="text;html=1;fontSize=10;fontColor=#1A1A2E;align=left;" vertex="1" parent="1">
+          <mxGeometry x="112" y="893" width="60" height="16" as="geometry" />
+        </mxCell>
+        <mxCell id="leg_ext" value="" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#F5F0EB;strokeColor=#2B4066;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="920" width="24" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="leg_ext_t" value="External Entity" style="text;html=1;fontSize=10;fontColor=#1A1A2E;align=left;" vertex="1" parent="1">
+          <mxGeometry x="112" y="921" width="90" height="16" as="geometry" />
+        </mxCell>
+        <mxCell id="leg_ds" value="" style="shape=partialRectangle;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#2B4066;strokeWidth=1;top=0;right=0;bottom=1;left=1;" vertex="1" parent="1">
+          <mxGeometry x="230" y="890" width="50" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="leg_ds_t" value="Data Store" style="text;html=1;fontSize=10;fontColor=#1A1A2E;align=left;" vertex="1" parent="1">
+          <mxGeometry x="290" y="891" width="80" height="16" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

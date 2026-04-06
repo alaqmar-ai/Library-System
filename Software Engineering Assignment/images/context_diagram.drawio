@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net" modified="2026-04-06" type="device">
+  <diagram name="Context Diagram" id="context-diagram-1">
+    <mxGraphModel dx="1422" dy="762" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1000" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- Title -->
+        <mxCell id="title" value="System Context Diagram — SmartLib" style="text;html=1;fontSize=20;fontStyle=1;fontColor=#1A1A2E;align=center;verticalAlign=middle;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="500" y="20" width="600" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- Central System -->
+        <mxCell id="system" value="&lt;b&gt;SmartLib&lt;/b&gt;&lt;br&gt;Smart University Library&lt;br&gt;Management System" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2B4066;fontColor=#FFFFFF;strokeColor=#1A1A2E;strokeWidth=2;fontSize=14;arcSize=12;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="620" y="370" width="260" height="120" as="geometry" />
+        </mxCell>
+
+        <!-- Student Entity -->
+        <mxCell id="student" value="&lt;b&gt;Student&lt;/b&gt;" style="shape=rectangle;rounded=1;whiteSpace=wrap;html=1;fillColor=#F5F0EB;fontColor=#1A1A2E;strokeColor=#2B4066;strokeWidth=2;fontSize=13;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="100" y="180" width="160" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- Librarian Entity -->
+        <mxCell id="librarian" value="&lt;b&gt;Librarian&lt;/b&gt;" style="shape=rectangle;rounded=1;whiteSpace=wrap;html=1;fillColor=#F5F0EB;fontColor=#1A1A2E;strokeColor=#2B4066;strokeWidth=2;fontSize=13;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="100" y="600" width="160" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- Admin Entity -->
+        <mxCell id="admin" value="&lt;b&gt;Admin&lt;/b&gt;" style="shape=rectangle;rounded=1;whiteSpace=wrap;html=1;fillColor=#F5F0EB;fontColor=#1A1A2E;strokeColor=#2B4066;strokeWidth=2;fontSize=13;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="1240" y="180" width="160" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- University Database -->
+        <mxCell id="unidb" value="&lt;b&gt;University&lt;br&gt;Database&lt;/b&gt;" style="shape=rectangle;rounded=1;whiteSpace=wrap;html=1;fillColor=#F5F0EB;fontColor=#1A1A2E;strokeColor=#C4603C;strokeWidth=2;fontSize=13;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="1240" y="600" width="160" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- Email Notification System -->
+        <mxCell id="email" value="&lt;b&gt;Email Notification&lt;br&gt;System&lt;/b&gt;" style="shape=rectangle;rounded=1;whiteSpace=wrap;html=1;fillColor=#F5F0EB;fontColor=#1A1A2E;strokeColor=#C4603C;strokeWidth=2;fontSize=13;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="670" y="700" width="160" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- Data Flows: Student to System -->
+        <mxCell id="flow1" value="Search queries,&lt;br&gt;Borrow/Return requests,&lt;br&gt;Fine payments,&lt;br&gt;Reservation requests" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#2B4066;strokeWidth=1.5;fontColor=#1A1A2E;fontSize=10;labelBackgroundColor=#FFFFFF;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.25;entryDx=0;entryDy=0;" edge="1" parent="1" source="student" target="system">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="flow2" value="Search results,&lt;br&gt;Borrowing status,&lt;br&gt;Receipts, Notifications" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#2B4066;strokeWidth=1.5;fontColor=#1A1A2E;fontSize=10;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.75;entryDx=0;entryDy=0;dashed=1;" edge="1" parent="1" source="student" target="system">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="180" y="340" />
+              <mxPoint x="540" y="340" />
+              <mxPoint x="540" y="460" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Data Flows: Librarian to System -->
+        <mxCell id="flow3" value="Catalog updates,&lt;br&gt;Issue/Return processing,&lt;br&gt;Report requests" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#2B4066;strokeWidth=1.5;fontColor=#1A1A2E;fontSize=10;labelBackgroundColor=#FFFFFF;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.75;entryDx=0;entryDy=0;" edge="1" parent="1" source="librarian" target="system">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="400" y="630" />
+              <mxPoint x="400" y="460" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="flow4" value="Reports,&lt;br&gt;Confirmations" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#2B4066;strokeWidth=1.5;fontColor=#1A1A2E;fontSize=10;labelBackgroundColor=#FFFFFF;dashed=1;entryX=0.25;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="system" target="librarian">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="685" y="560" />
+              <mxPoint x="320" y="560" />
+              <mxPoint x="320" y="630" />
+              <mxPoint x="140" y="630" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Data Flows: Admin to System -->
+        <mxCell id="flow5" value="User management,&lt;br&gt;System configuration,&lt;br&gt;Report requests" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#2B4066;strokeWidth=1.5;fontColor=#1A1A2E;fontSize=10;labelBackgroundColor=#FFFFFF;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.25;entryDx=0;entryDy=0;" edge="1" parent="1" source="admin" target="system">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="flow6" value="System reports,&lt;br&gt;User data,&lt;br&gt;Confirmations" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#2B4066;strokeWidth=1.5;fontColor=#1A1A2E;fontSize=10;labelBackgroundColor=#FFFFFF;dashed=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=1;entryY=0.75;entryDx=0;entryDy=0;" edge="1" parent="1" source="admin" target="system">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1320" y="340" />
+              <mxPoint x="960" y="340" />
+              <mxPoint x="960" y="460" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Data Flows: University Database -->
+        <mxCell id="flow7" value="Student enrollment&lt;br&gt;verification request" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#C4603C;strokeWidth=1.5;fontColor=#1A1A2E;fontSize=10;labelBackgroundColor=#FFFFFF;exitX=1;exitY=0.75;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="system" target="unidb">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1000" y="460" />
+              <mxPoint x="1000" y="630" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="flow8" value="Enrollment data" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#C4603C;strokeWidth=1.5;fontColor=#1A1A2E;fontSize=10;labelBackgroundColor=#FFFFFF;dashed=1;exitX=0.25;exitY=0;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="unidb" target="system">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1280" y="560" />
+              <mxPoint x="1060" y="560" />
+              <mxPoint x="1060" y="430" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Data Flows: Email System -->
+        <mxCell id="flow9" value="Overdue notices,&lt;br&gt;Reservation alerts,&lt;br&gt;System notifications" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#C4603C;strokeWidth=1.5;fontColor=#1A1A2E;fontSize=10;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="system" target="email">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="flow10" value="Delivery status" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#C4603C;strokeWidth=1.5;fontColor=#1A1A2E;fontSize=10;labelBackgroundColor=#FFFFFF;dashed=1;exitX=1;exitY=0;exitDx=0;exitDy=0;entryX=0.75;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="email" target="system">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="830" y="680" />
+              <mxPoint x="815" y="680" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Legend -->
+        <mxCell id="legend_bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#1A1A2E;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="820" width="300" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="legend_title" value="&lt;b&gt;Legend&lt;/b&gt;" style="text;html=1;fontSize=11;fontColor=#1A1A2E;align=left;" vertex="1" parent="1">
+          <mxGeometry x="70" y="825" width="100" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="legend1" value="" style="endArrow=classic;html=1;strokeColor=#2B4066;strokeWidth=1.5;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="80" y="860" as="sourcePoint" />
+            <mxPoint x="140" y="860" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="legend1_text" value="Data flow (request)" style="text;html=1;fontSize=10;fontColor=#1A1A2E;align=left;" vertex="1" parent="1">
+          <mxGeometry x="150" y="852" width="120" height="16" as="geometry" />
+        </mxCell>
+        <mxCell id="legend2" value="" style="endArrow=classic;html=1;strokeColor=#2B4066;strokeWidth=1.5;dashed=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="80" y="882" as="sourcePoint" />
+            <mxPoint x="140" y="882" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="legend2_text" value="Data flow (response)" style="text;html=1;fontSize=10;fontColor=#1A1A2E;align=left;" vertex="1" parent="1">
+          <mxGeometry x="150" y="874" width="120" height="16" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

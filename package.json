@@ -1,0 +1,24 @@
+{
+  "name": "assignment",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alaqmar-ai/Library-System.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/alaqmar-ai/Library-System/issues"
+  },
+  "homepage": "https://github.com/alaqmar-ai/Library-System#readme",
+  "dependencies": {
+    "pptxgenjs": "^4.0.1"
+  }
+}
