@@ -1,0 +1,141 @@
+<mxGraphModel adaptiveColors="auto">
+  <root>
+    <mxCell id="0"/>
+    <mxCell id="1" parent="0"/>
+    <mxCell id="2" value="" style="rounded=1;fillColor=#FFFFFF;strokeColor=#CCCCCC;shadow=1;" vertex="1" parent="1">
+      <mxGeometry x="50" y="20" width="400" height="700" as="geometry"/>
+    </mxCell>
+    <mxCell id="3" value="" style="rounded=0;fillColor=#2B4066;strokeColor=none;" vertex="1" parent="1">
+      <mxGeometry x="50" y="20" width="400" height="130" as="geometry"/>
+    </mxCell>
+    <mxCell id="4" value="&#x2190;  My Profile" style="text;fontSize=16;fontColor=#FFFFFF;fontStyle=1;align=left;spacingLeft=5;" vertex="1" parent="1">
+      <mxGeometry x="60" y="30" width="200" height="30" as="geometry"/>
+    </mxCell>
+    <mxCell id="5" value="&#x2699;" style="text;fontSize=20;fontColor=#FFFFFF;align=right;spacingRight=10;" vertex="1" parent="1">
+      <mxGeometry x="390" y="25" width="40" height="35" as="geometry"/>
+    </mxCell>
+    <mxCell id="6" value="" style="ellipse;fillColor=#DAE8FC;strokeColor=#FFFFFF;strokeWidth=3;" vertex="1" parent="1">
+      <mxGeometry x="205" y="65" width="90" height="90" as="geometry"/>
+    </mxCell>
+    <mxCell id="7" value="&#x1f464;" style="text;fontSize=35;align=center;" vertex="1" parent="1">
+      <mxGeometry x="218" y="78" width="65" height="65" as="geometry"/>
+    </mxCell>
+    <mxCell id="8" value="Ahmad Bin Ibrahim" style="text;fontSize=16;fontColor=#2B4066;fontStyle=1;align=center;" vertex="1" parent="1">
+      <mxGeometry x="120" y="165" width="260" height="25" as="geometry"/>
+    </mxCell>
+    <mxCell id="9" value="Student ID: A12345  |  Computer Science" style="text;fontSize=10;fontColor=#6B7280;align=center;" vertex="1" parent="1">
+      <mxGeometry x="105" y="190" width="290" height="20" as="geometry"/>
+    </mxCell>
+    <mxCell id="15" value="" style="rounded=0;fillColor=#F5F5F5;strokeColor=none;" vertex="1" parent="1">
+      <mxGeometry x="70" y="225" width="360" height="70" as="geometry"/>
+    </mxCell>
+    <mxCell id="16" value="Books Borrowed" style="text;fontSize=9;fontColor=#999999;align=center;" vertex="1" parent="1">
+      <mxGeometry x="80" y="232" width="100" height="15" as="geometry"/>
+    </mxCell>
+    <mxCell id="17" value="47" style="text;fontSize=20;fontColor=#2B4066;fontStyle=1;align=center;" vertex="1" parent="1">
+      <mxGeometry x="90" y="250" width="80" height="30" as="geometry"/>
+    </mxCell>
+    <mxCell id="18" value="Currently Loaned" style="text;fontSize=9;fontColor=#999999;align=center;" vertex="1" parent="1">
+      <mxGeometry x="200" y="232" width="100" height="15" as="geometry"/>
+    </mxCell>
+    <mxCell id="19" value="3" style="text;fontSize=20;fontColor=#D6B656;fontStyle=1;align=center;" vertex="1" parent="1">
+      <mxGeometry x="210" y="250" width="80" height="30" as="geometry"/>
+    </mxCell>
+    <mxCell id="20" value="Overdue" style="text;fontSize=9;fontColor=#999999;align=center;" vertex="1" parent="1">
+      <mxGeometry x="320" y="232" width="100" height="15" as="geometry"/>
+    </mxCell>
+    <mxCell id="21" value="0" style="text;fontSize=20;fontColor=#82B366;fontStyle=1;align=center;" vertex="1" parent="1">
+      <mxGeometry x="330" y="250" width="80" height="30" as="geometry"/>
+    </mxCell>
+    <mxCell id="30" value="Account Settings" style="text;fontSize=13;fontColor=#2B4066;fontStyle=1;align=left;" vertex="1" parent="1">
+      <mxGeometry x="70" y="310" width="200" height="25" as="geometry"/>
+    </mxCell>
+    <mxCell id="31" value="" style="rounded=1;fillColor=#FAFAFA;strokeColor=#E8E8E8;" vertex="1" parent="1">
+      <mxGeometry x="70" y="345" width="360" height="45" as="geometry"/>
+    </mxCell>
+    <mxCell id="32" value="&#x1f464;  Edit Personal Information" style="text;fontSize=12;fontColor=#333333;align=left;spacingLeft=10;" vertex="1" parent="1">
+      <mxGeometry x="75" y="355" width="280" height="25" as="geometry"/>
+    </mxCell>
+    <mxCell id="33" value="&#x276F;" style="text;fontSize=14;fontColor=#CCCCCC;align=right;" vertex="1" parent="1">
+      <mxGeometry x="390" y="355" width="30" height="25" as="geometry"/>
+    </mxCell>
+    <mxCell id="34" value="" style="rounded=1;fillColor=#FAFAFA;strokeColor=#E8E8E8;" vertex="1" parent="1">
+      <mxGeometry x="70" y="400" width="360" height="45" as="geometry"/>
+    </mxCell>
+    <mxCell id="35" value="&#x1f514;  Notification Preferences" style="text;fontSize=12;fontColor=#333333;align=left;spacingLeft=10;" vertex="1" parent="1">
+      <mxGeometry x="75" y="410" width="280" height="25" as="geometry"/>
+    </mxCell>
+    <mxCell id="36" value="&#x276F;" style="text;fontSize=14;fontColor=#CCCCCC;align=right;" vertex="1" parent="1">
+      <mxGeometry x="390" y="410" width="30" height="25" as="geometry"/>
+    </mxCell>
+    <mxCell id="37" value="" style="rounded=1;fillColor=#FAFAFA;strokeColor=#E8E8E8;" vertex="1" parent="1">
+      <mxGeometry x="70" y="455" width="360" height="45" as="geometry"/>
+    </mxCell>
+    <mxCell id="38" value="&#x1f310;  Language &amp; Accessibility" style="text;fontSize=12;fontColor=#333333;align=left;spacingLeft=10;" vertex="1" parent="1">
+      <mxGeometry x="75" y="465" width="280" height="25" as="geometry"/>
+    </mxCell>
+    <mxCell id="39" value="&#x276F;" style="text;fontSize=14;fontColor=#CCCCCC;align=right;" vertex="1" parent="1">
+      <mxGeometry x="390" y="465" width="30" height="25" as="geometry"/>
+    </mxCell>
+    <mxCell id="40" value="" style="rounded=1;fillColor=#FAFAFA;strokeColor=#E8E8E8;" vertex="1" parent="1">
+      <mxGeometry x="70" y="510" width="360" height="45" as="geometry"/>
+    </mxCell>
+    <mxCell id="41" value="&#x1f512;  Change Password" style="text;fontSize=12;fontColor=#333333;align=left;spacingLeft=10;" vertex="1" parent="1">
+      <mxGeometry x="75" y="520" width="280" height="25" as="geometry"/>
+    </mxCell>
+    <mxCell id="42" value="&#x276F;" style="text;fontSize=14;fontColor=#CCCCCC;align=right;" vertex="1" parent="1">
+      <mxGeometry x="390" y="520" width="30" height="25" as="geometry"/>
+    </mxCell>
+    <mxCell id="43" value="" style="rounded=1;fillColor=#FAFAFA;strokeColor=#E8E8E8;" vertex="1" parent="1">
+      <mxGeometry x="70" y="565" width="360" height="45" as="geometry"/>
+    </mxCell>
+    <mxCell id="44" value="&#x2753;  Help &amp; Support" style="text;fontSize=12;fontColor=#333333;align=left;spacingLeft=10;" vertex="1" parent="1">
+      <mxGeometry x="75" y="575" width="280" height="25" as="geometry"/>
+    </mxCell>
+    <mxCell id="45" value="&#x276F;" style="text;fontSize=14;fontColor=#CCCCCC;align=right;" vertex="1" parent="1">
+      <mxGeometry x="390" y="575" width="30" height="25" as="geometry"/>
+    </mxCell>
+    <mxCell id="46" value="Log Out" style="rounded=1;fillColor=#FFFFFF;strokeColor=#B85450;fontColor=#B85450;fontSize=13;fontStyle=1;align=center;" vertex="1" parent="1">
+      <mxGeometry x="70" y="630" width="360" height="42" as="geometry"/>
+    </mxCell>
+    <mxCell id="50" value="" style="rounded=0;fillColor=#F5F5F5;strokeColor=#CCCCCC;" vertex="1" parent="1">
+      <mxGeometry x="50" y="670" width="400" height="50" as="geometry"/>
+    </mxCell>
+    <mxCell id="51" value="&#x1f3e0;" style="text;fontSize=20;align=center;" vertex="1" parent="1">
+      <mxGeometry x="70" y="675" width="60" height="40" as="geometry"/>
+    </mxCell>
+    <mxCell id="52" value="&#x1f50d;" style="text;fontSize=20;align=center;" vertex="1" parent="1">
+      <mxGeometry x="150" y="675" width="60" height="40" as="geometry"/>
+    </mxCell>
+    <mxCell id="53" value="&#x1f4da;" style="text;fontSize=20;align=center;" vertex="1" parent="1">
+      <mxGeometry x="230" y="675" width="60" height="40" as="geometry"/>
+    </mxCell>
+    <mxCell id="54" value="&#x1f514;" style="text;fontSize=20;align=center;" vertex="1" parent="1">
+      <mxGeometry x="310" y="675" width="60" height="40" as="geometry"/>
+    </mxCell>
+    <mxCell id="55" value="&#x1f464;" style="text;fontSize=20;align=center;fontStyle=4;" vertex="1" parent="1">
+      <mxGeometry x="380" y="675" width="60" height="40" as="geometry"/>
+    </mxCell>
+    <mxCell id="60" value="Interface 5: User Profile &amp; Settings" style="text;fontSize=18;fontColor=#2B4066;fontStyle=1;align=left;" vertex="1" parent="1">
+      <mxGeometry x="480" y="15" width="320" height="30" as="geometry"/>
+    </mxCell>
+    <mxCell id="61" value="Rule 1: Consistency - Same nav, header style, icon pattern" style="text;fontSize=10;fontColor=#82B366;fontStyle=2;align=left;" vertex="1" parent="1">
+      <mxGeometry x="480" y="55" width="320" height="25" as="geometry"/>
+    </mxCell>
+    <mxCell id="62" value="Rule 2: Universal Usability - Accessibility settings available" style="text;fontSize=10;fontColor=#82B366;fontStyle=2;align=left;" vertex="1" parent="1">
+      <mxGeometry x="480" y="85" width="320" height="25" as="geometry"/>
+    </mxCell>
+    <mxCell id="63" value="Rule 3: Feedback - Statistics shown at a glance" style="text;fontSize=10;fontColor=#82B366;fontStyle=2;align=left;" vertex="1" parent="1">
+      <mxGeometry x="480" y="115" width="320" height="25" as="geometry"/>
+    </mxCell>
+    <mxCell id="64" value="Rule 6: Easy Reversal - Back button, editable info" style="text;fontSize=10;fontColor=#82B366;fontStyle=2;align=left;" vertex="1" parent="1">
+      <mxGeometry x="480" y="145" width="320" height="25" as="geometry"/>
+    </mxCell>
+    <mxCell id="65" value="Rule 7: User Control - Full control over account &amp; preferences" style="text;fontSize=10;fontColor=#82B366;fontStyle=2;align=left;" vertex="1" parent="1">
+      <mxGeometry x="480" y="175" width="340" height="25" as="geometry"/>
+    </mxCell>
+    <mxCell id="66" value="Rule 8: Reduce Memory - Organized menu with clear icons/labels" style="text;fontSize=10;fontColor=#82B366;fontStyle=2;align=left;" vertex="1" parent="1">
+      <mxGeometry x="480" y="205" width="340" height="25" as="geometry"/>
+    </mxCell>
+  </root>
+</mxGraphModel>

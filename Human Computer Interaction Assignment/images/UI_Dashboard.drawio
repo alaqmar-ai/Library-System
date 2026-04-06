@@ -1,0 +1,120 @@
+<mxGraphModel adaptiveColors="auto">
+  <root>
+    <mxCell id="0"/>
+    <mxCell id="1" parent="0"/>
+    <mxCell id="2" value="" style="rounded=1;fillColor=#FFFFFF;strokeColor=#CCCCCC;shadow=1;" vertex="1" parent="1">
+      <mxGeometry x="50" y="20" width="400" height="700" as="geometry"/>
+    </mxCell>
+    <mxCell id="3" value="" style="rounded=0;fillColor=#2B4066;strokeColor=none;" vertex="1" parent="1">
+      <mxGeometry x="50" y="20" width="400" height="55" as="geometry"/>
+    </mxCell>
+    <mxCell id="4" value="&#x2630;  SmartLib" style="text;fontSize=16;fontColor=#FFFFFF;fontStyle=1;align=left;spacingLeft=5;" vertex="1" parent="1">
+      <mxGeometry x="60" y="30" width="160" height="35" as="geometry"/>
+    </mxCell>
+    <mxCell id="5" value="&#x1f514;  &#x1f464;" style="text;fontSize=18;fontColor=#FFFFFF;align=right;spacingRight=5;" vertex="1" parent="1">
+      <mxGeometry x="330" y="30" width="110" height="35" as="geometry"/>
+    </mxCell>
+    <mxCell id="6" value="Welcome back, Ahmad!" style="text;fontSize=16;fontColor=#2B4066;fontStyle=1;align=left;" vertex="1" parent="1">
+      <mxGeometry x="70" y="90" width="250" height="30" as="geometry"/>
+    </mxCell>
+    <mxCell id="7" value="What would you like to do today?" style="text;fontSize=11;fontColor=#6B7280;align=left;" vertex="1" parent="1">
+      <mxGeometry x="70" y="118" width="250" height="20" as="geometry"/>
+    </mxCell>
+    <mxCell id="8" value="&#x1f50d; Search books, authors, ISBN..." style="rounded=1;fillColor=#F5F5F5;strokeColor=#CCCCCC;fontSize=12;fontColor=#999999;align=left;spacingLeft=10;" vertex="1" parent="1">
+      <mxGeometry x="70" y="150" width="360" height="42" as="geometry"/>
+    </mxCell>
+    <mxCell id="20" value="" style="rounded=1;fillColor=#DAE8FC;strokeColor=#6C8EBF;" vertex="1" parent="1">
+      <mxGeometry x="70" y="210" width="170" height="90" as="geometry"/>
+    </mxCell>
+    <mxCell id="21" value="&#x1f4da; Browse Books" style="text;fontSize=13;fontColor=#2B4066;fontStyle=1;align=center;" vertex="1" parent="1">
+      <mxGeometry x="75" y="225" width="160" height="25" as="geometry"/>
+    </mxCell>
+    <mxCell id="22" value="12,450 available" style="text;fontSize=10;fontColor=#6B7280;align=center;" vertex="1" parent="1">
+      <mxGeometry x="75" y="255" width="160" height="20" as="geometry"/>
+    </mxCell>
+    <mxCell id="23" value="" style="rounded=1;fillColor=#D5E8D4;strokeColor=#82B366;" vertex="1" parent="1">
+      <mxGeometry x="260" y="210" width="170" height="90" as="geometry"/>
+    </mxCell>
+    <mxCell id="24" value="&#x1f4d6; My Books" style="text;fontSize=13;fontColor=#2B4066;fontStyle=1;align=center;" vertex="1" parent="1">
+      <mxGeometry x="265" y="225" width="160" height="25" as="geometry"/>
+    </mxCell>
+    <mxCell id="25" value="3 books borrowed" style="text;fontSize=10;fontColor=#6B7280;align=center;" vertex="1" parent="1">
+      <mxGeometry x="265" y="255" width="160" height="20" as="geometry"/>
+    </mxCell>
+    <mxCell id="26" value="" style="rounded=1;fillColor=#FFF2CC;strokeColor=#D6B656;" vertex="1" parent="1">
+      <mxGeometry x="70" y="315" width="170" height="90" as="geometry"/>
+    </mxCell>
+    <mxCell id="27" value="&#x1f4cb; Reservations" style="text;fontSize=13;fontColor=#2B4066;fontStyle=1;align=center;" vertex="1" parent="1">
+      <mxGeometry x="75" y="330" width="160" height="25" as="geometry"/>
+    </mxCell>
+    <mxCell id="28" value="1 book reserved" style="text;fontSize=10;fontColor=#6B7280;align=center;" vertex="1" parent="1">
+      <mxGeometry x="75" y="360" width="160" height="20" as="geometry"/>
+    </mxCell>
+    <mxCell id="29" value="" style="rounded=1;fillColor=#F8CECC;strokeColor=#B85450;" vertex="1" parent="1">
+      <mxGeometry x="260" y="315" width="170" height="90" as="geometry"/>
+    </mxCell>
+    <mxCell id="30" value="&#x1f514; Notifications" style="text;fontSize=13;fontColor=#2B4066;fontStyle=1;align=center;" vertex="1" parent="1">
+      <mxGeometry x="265" y="330" width="160" height="25" as="geometry"/>
+    </mxCell>
+    <mxCell id="31" value="2 new alerts" style="text;fontSize=10;fontColor=#6B7280;align=center;" vertex="1" parent="1">
+      <mxGeometry x="265" y="360" width="160" height="20" as="geometry"/>
+    </mxCell>
+    <mxCell id="35" value="Due Soon" style="text;fontSize=14;fontColor=#2B4066;fontStyle=1;align=left;" vertex="1" parent="1">
+      <mxGeometry x="70" y="425" width="150" height="25" as="geometry"/>
+    </mxCell>
+    <mxCell id="36" value="" style="rounded=1;fillColor=#FFF8F0;strokeColor=#E8DDD0;" vertex="1" parent="1">
+      <mxGeometry x="70" y="460" width="360" height="65" as="geometry"/>
+    </mxCell>
+    <mxCell id="37" value="Data Structures &amp; Algorithms" style="text;fontSize=12;fontColor=#2B4066;fontStyle=1;align=left;" vertex="1" parent="1">
+      <mxGeometry x="85" y="468" width="250" height="22" as="geometry"/>
+    </mxCell>
+    <mxCell id="38" value="Due: April 12, 2026  |  2 days left" style="text;fontSize=10;fontColor=#B85450;align=left;" vertex="1" parent="1">
+      <mxGeometry x="85" y="492" width="250" height="20" as="geometry"/>
+    </mxCell>
+    <mxCell id="39" value="" style="rounded=1;fillColor=#FFF8F0;strokeColor=#E8DDD0;" vertex="1" parent="1">
+      <mxGeometry x="70" y="535" width="360" height="65" as="geometry"/>
+    </mxCell>
+    <mxCell id="40" value="Introduction to HCI" style="text;fontSize=12;fontColor=#2B4066;fontStyle=1;align=left;" vertex="1" parent="1">
+      <mxGeometry x="85" y="543" width="250" height="22" as="geometry"/>
+    </mxCell>
+    <mxCell id="41" value="Due: April 18, 2026  |  8 days left" style="text;fontSize=10;fontColor=#D6B656;align=left;" vertex="1" parent="1">
+      <mxGeometry x="85" y="567" width="250" height="20" as="geometry"/>
+    </mxCell>
+    <mxCell id="50" value="" style="rounded=0;fillColor=#F5F5F5;strokeColor=#CCCCCC;" vertex="1" parent="1">
+      <mxGeometry x="50" y="670" width="400" height="50" as="geometry"/>
+    </mxCell>
+    <mxCell id="51" value="&#x1f3e0;" style="text;fontSize=20;align=center;" vertex="1" parent="1">
+      <mxGeometry x="70" y="675" width="60" height="40" as="geometry"/>
+    </mxCell>
+    <mxCell id="52" value="&#x1f50d;" style="text;fontSize=20;align=center;" vertex="1" parent="1">
+      <mxGeometry x="150" y="675" width="60" height="40" as="geometry"/>
+    </mxCell>
+    <mxCell id="53" value="&#x1f4da;" style="text;fontSize=20;align=center;" vertex="1" parent="1">
+      <mxGeometry x="230" y="675" width="60" height="40" as="geometry"/>
+    </mxCell>
+    <mxCell id="54" value="&#x1f514;" style="text;fontSize=20;align=center;" vertex="1" parent="1">
+      <mxGeometry x="310" y="675" width="60" height="40" as="geometry"/>
+    </mxCell>
+    <mxCell id="55" value="&#x1f464;" style="text;fontSize=20;align=center;" vertex="1" parent="1">
+      <mxGeometry x="380" y="675" width="60" height="40" as="geometry"/>
+    </mxCell>
+    <mxCell id="60" value="Interface 2: Student Dashboard" style="text;fontSize=18;fontColor=#2B4066;fontStyle=1;align=left;" vertex="1" parent="1">
+      <mxGeometry x="480" y="15" width="320" height="30" as="geometry"/>
+    </mxCell>
+    <mxCell id="61" value="Rule 1: Consistency - Same nav bar, colors, typography" style="text;fontSize=10;fontColor=#82B366;fontStyle=2;align=left;" vertex="1" parent="1">
+      <mxGeometry x="480" y="55" width="320" height="25" as="geometry"/>
+    </mxCell>
+    <mxCell id="62" value="Rule 2: Universal Usability - Card-based layout, large tap targets" style="text;fontSize=10;fontColor=#82B366;fontStyle=2;align=left;" vertex="1" parent="1">
+      <mxGeometry x="480" y="85" width="320" height="25" as="geometry"/>
+    </mxCell>
+    <mxCell id="63" value="Rule 3: Feedback - Due dates shown with color-coded urgency" style="text;fontSize=10;fontColor=#82B366;fontStyle=2;align=left;" vertex="1" parent="1">
+      <mxGeometry x="480" y="115" width="320" height="25" as="geometry"/>
+    </mxCell>
+    <mxCell id="64" value="Rule 7: User Control - Direct access to all modules from dashboard" style="text;fontSize=10;fontColor=#82B366;fontStyle=2;align=left;" vertex="1" parent="1">
+      <mxGeometry x="480" y="145" width="340" height="25" as="geometry"/>
+    </mxCell>
+    <mxCell id="65" value="Rule 8: Reduce Memory - Search bar, recent items, visual icons" style="text;fontSize=10;fontColor=#82B366;fontStyle=2;align=left;" vertex="1" parent="1">
+      <mxGeometry x="480" y="175" width="320" height="25" as="geometry"/>
+    </mxCell>
+  </root>
+</mxGraphModel>
