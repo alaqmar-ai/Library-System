@@ -247,12 +247,27 @@ function generateSE() {
       fill: { color: DS.terracotta },
     });
 
-    slide.addText("Student Name", {
-      x: 4.6, y: 3.1, w: 5.0, h: 0.4,
-      fontSize: 15, fontFace: DS.bodyFont, color: DS.muted,
+    slide.addText("Group Members", {
+      x: 4.6, y: 3.05, w: 5.0, h: 0.32,
+      fontSize: 13, fontFace: DS.headFont, bold: true, color: DS.navy,
     });
+
+    [
+      "Al-Aqmar Bin Qaid-E Johar (1121250326560)",
+      "Hashem Maged Ali Alhasani (0121250326706)",
+      "Sharjeel Muhammad (0121250326923)",
+      "Abdullah Saleh Abdullah (0121250326783)",
+      "Ateegalla Fadlalseed Ateegalla Ahmed (0121250326810)",
+      "Ibrahim Muhammad (0121250326708)",
+    ].forEach((m, i) => {
+      slide.addText(`${i + 1}.  ${m}`, {
+        x: 4.8, y: 3.4 + i * 0.30, w: 4.7, h: 0.28,
+        fontSize: 10.5, fontFace: DS.bodyFont, color: DS.dark,
+      });
+    });
+
     slide.addText("2026", {
-      x: 4.6, y: 3.55, w: 5.0, h: 0.4,
+      x: 4.6, y: 5.3, w: 5.0, h: 0.4,
       fontSize: 14, fontFace: DS.bodyFont, color: DS.muted,
     });
   }
@@ -885,8 +900,27 @@ function generateSAD() {
       fill: { color: DS.terracotta },
     });
 
+    slide.addText("Group Members", {
+      x: 4.6, y: 3.05, w: 5.0, h: 0.32,
+      fontSize: 13, fontFace: DS.headFont, bold: true, color: DS.navy,
+    });
+
+    [
+      "Al-Aqmar Bin Qaid-E Johar (1121250326560)",
+      "Hashem Maged Ali Alhasani (0121250326706)",
+      "Sharjeel Muhammad (0121250326923)",
+      "Abdullah Saleh Abdullah (0121250326783)",
+      "Ateegalla Fadlalseed Ateegalla Ahmed (0121250326810)",
+      "Ibrahim Muhammad (0121250326708)",
+    ].forEach((m, i) => {
+      slide.addText(`${i + 1}.  ${m}`, {
+        x: 4.8, y: 3.4 + i * 0.30, w: 4.7, h: 0.28,
+        fontSize: 10.5, fontFace: DS.bodyFont, color: DS.dark,
+      });
+    });
+
     slide.addText("2026", {
-      x: 4.6, y: 3.1, w: 5.0, h: 0.4,
+      x: 4.6, y: 5.3, w: 5.0, h: 0.4,
       fontSize: 14, fontFace: DS.bodyFont, color: DS.muted,
     });
   }

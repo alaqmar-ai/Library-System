@@ -416,22 +416,23 @@ function generateHCI() {
 
     // Group members
     const members = [
-      "Ahmad Bin Ibrahim (A12345)",
-      "Sarah Binti Abdullah (A12346)",
-      "Muhammad Hafiz Bin Razak (A12347)",
-      "Nurul Aisyah Binti Hassan (A12348)",
-      "David Tan Wei Ming (A12349)",
+      "Al-Aqmar Bin Qaid-E Johar (1121250326560)",
+      "Hashem Maged Ali Alhasani (0121250326706)",
+      "Sharjeel Muhammad (0121250326923)",
+      "Abdullah Saleh Abdullah (0121250326783)",
+      "Ateegalla Fadlalseed Ateegalla Ahmed (0121250326810)",
+      "Ibrahim Muhammad (0121250326708)",
     ];
 
     slide.addText("Group Members", {
-      x: 4.6, y: 3.2, w: 5.0, h: 0.35,
+      x: 4.6, y: 3.05, w: 5.0, h: 0.32,
       fontSize: 13, fontFace: DS.headFont, bold: true, color: DS.navy,
     });
 
     members.forEach((m, i) => {
       slide.addText(`${i + 1}.  ${m}`, {
-        x: 4.8, y: 3.6 + i * 0.35, w: 4.5, h: 0.32,
-        fontSize: 11.5, fontFace: DS.bodyFont, color: DS.dark,
+        x: 4.8, y: 3.4 + i * 0.30, w: 4.7, h: 0.28,
+        fontSize: 10.5, fontFace: DS.bodyFont, color: DS.dark,
       });
     });
 
@@ -1432,11 +1433,11 @@ function generateHCI() {
 
     // Group members
     slide.addText(
-      "Ahmad Bin Ibrahim  |  Sarah Binti Abdullah  |  Muhammad Hafiz Bin Razak\n" +
-      "Nurul Aisyah Binti Hassan  |  David Tan Wei Ming",
+      "Al-Aqmar Bin Qaid-E Johar  |  Hashem Maged Ali Alhasani  |  Sharjeel Muhammad\n" +
+      "Abdullah Saleh Abdullah  |  Ateegalla Fadlalseed Ateegalla Ahmed  |  Ibrahim Muhammad",
       {
         x: 0.5, y: 4.7, w: 9.0, h: 0.7,
-        fontSize: 11.5, fontFace: DS.bodyFont,
+        fontSize: 11, fontFace: DS.bodyFont,
         color: "7A8FAA", align: "center", lineSpacingMultiple: 1.4,
       }
     );
