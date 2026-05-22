@@ -409,7 +409,7 @@ function generateHCI() {
     });
 
     // Lecturer
-    slide.addText("Lecturer: Dr. Noraini Binti Mohd Razali", {
+    slide.addText("Lecturer: Ms. Ajeerah", {
       x: 4.6, y: 2.6, w: 5.0, h: 0.35,
       fontSize: 12, fontFace: DS.bodyFont, color: DS.muted,
     });
@@ -430,9 +430,16 @@ function generateHCI() {
     });
 
     members.forEach((m, i) => {
-      slide.addText(`${i + 1}.  ${m}`, {
-        x: 4.8, y: 3.4 + i * 0.30, w: 4.7, h: 0.28,
+      const ny = 3.4 + i * 0.30;
+      slide.addText(`${i + 1}.`, {
+        x: 4.8, y: ny, w: 0.35, h: 0.28,
         fontSize: 10.5, fontFace: DS.bodyFont, color: DS.dark,
+        align: "left",
+      });
+      slide.addText(m, {
+        x: 5.15, y: ny, w: 4.45, h: 0.28,
+        fontSize: 10.5, fontFace: DS.bodyFont, color: DS.dark,
+        align: "left",
       });
     });
 
@@ -1448,7 +1455,7 @@ function generateHCI() {
       color: "7A8FAA", align: "center",
     });
 
-    slide.addText("Human Computer Interaction  |  Dr. Noraini Binti Mohd Razali  |  2026", {
+    slide.addText("Human Computer Interaction  |  Ms. Ajeerah  |  2026", {
       x: 0, y: 6.0, w: "100%", h: 0.35,
       fontSize: 10, fontFace: DS.bodyFont,
       color: "5A6B7E", align: "center",

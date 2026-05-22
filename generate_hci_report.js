@@ -367,7 +367,7 @@ function createTitlePage() {
       spacing: { after: 40 },
       children: [
         new TextRun({
-          text: "Dr. Noraini Binti Mohd Razali",
+          text: "Ms. Ajeerah",
           size: 24,
           font: "Calibri",
           color: "444444",
